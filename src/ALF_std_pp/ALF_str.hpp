@@ -7,6 +7,8 @@
 
 #include "ALF_common.hpp"
 
+#include <string>
+
 extern "C"{
 	#include "ALF_std/ALF_str.h"
 }
@@ -15,7 +17,9 @@ namespace ALF{
     namespace STR{
         char **split(char *string, const char *delimiters);
 
-        char* changeExtension(const char* word, const char* newExt, int lenExt);
+        char* changeExtension(const char *word, const char *newExt, int lenExt);
+
+        std::string *changeExtension(const std::string *word, const std::string *newExt);
     }
 }
 

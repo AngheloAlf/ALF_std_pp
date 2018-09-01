@@ -17,7 +17,7 @@ namespace ALF{
     namespace IO{
         char *raw_input(const char* outMessage);
         
-        std::string raw_input(std::string outMessage);
+        std::string *raw_input(const std::string *outMessage);
 
         void puthex(unsigned char character);
 
