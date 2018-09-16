@@ -6,6 +6,7 @@
 #define ALF_bytes_hpp
 
 #include "ALF_common.hpp"
+#include <cstdint>
 
 extern "C"{
     #include "ALF_std/ALF_bytes.h"
@@ -16,14 +17,20 @@ namespace ALF{
         /// C++ class wrapper.
         class Bytes{
         public:
-            Bytes(const char *bytes, long size);
-            ~Bytes(void);
+            Bytes(const uint8_t *bytes, size_t size);
+            ~Bytes();
 
-            long getSize(void);
+            size_t getSize();
 
-            const char *getBytes(void);
+            uint8_t *getBytes();
 
-            void setBytes(const char *bytes, long size);
+            bool setBytes(const uint8_t *bytes, size_t size);
+
+            bool setSize(size_t size);
+            
+            uint8_t getByte(size_t position);
+
+            void changeByte(size_t position, uint8_t newByte);
 
         private:
             ALF_bytes *bytesObj;

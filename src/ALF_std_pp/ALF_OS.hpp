@@ -22,34 +22,34 @@ extern "C"{
 
 namespace ALF{
     namespace OS{
-        bool isWindows(void);
+        bool isWindows();
 
-        bool isOSX(void);
+        bool isOSX();
         bool isMac();
 
-        bool isLinux(void);
+        bool isLinux();
 
-        bool isWindows32(void);
-        bool isWindows64(void);
+        bool isWindows32();
+        bool isWindows64();
 
-        bool isUnix(void);
-        bool isUnixOther(void);
+        bool isUnix();
+        bool isUnixOther();
 
-        bool isPosix(void);
+        bool isPosix();
 
-        bool isAndroid(void);
+        bool isAndroid();
 
-        bool isIOS(void);
+        bool isIOS();
         bool isIphone();
-        bool isIOSSimulator(void);
+        bool isIOSSimulator();
         bool isIphoneSimulator();
-        bool isOSXOther(void);
+        bool isOSXOther();
         bool isMACOther();
-        bool isAppleOther(void);
+        bool isAppleOther();
 
-        bool isFreeBSD(void);
+        bool isFreeBSD();
 
-        bool ALF_OS_isOther(void);
+        bool ALF_OS_isOther();
     }
 }
 

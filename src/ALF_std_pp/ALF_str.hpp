@@ -19,7 +19,7 @@ namespace ALF{
 
         char* changeExtension(const char *word, const char *newExt, int lenExt);
 
-        std::string *changeExtension(const std::string *word, const std::string *newExt);
+        std::string changeExtension(const std::string word, const std::string newExt);
     }
 }
 

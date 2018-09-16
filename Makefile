@@ -42,7 +42,7 @@ CC			= @g++
 LANG_EXT	= cpp
 HEADER_EXT	= hpp
 OBJ_EXT		= o
-FLAGS		= -Wall -fPIC
+FLAGS		= -Wall -fPIC -O2 -Wpedantic -std=gnu++17
 SHARED_FLAG	= -shared
 DEBUG_FLAG	= -g
 LIBS		= ALF_std

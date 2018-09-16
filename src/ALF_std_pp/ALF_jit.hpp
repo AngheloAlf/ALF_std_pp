@@ -17,24 +17,24 @@ namespace ALF{
     namespace JIT{
         class JIT{
         public:
-            JIT(void);
-            ~JIT(void);
+            JIT();
+            ~JIT();
 
-            uint64_t getAvaibleSize(void);
+            uint64_t getAvaibleSize();
 
             int addInstruction(uint64_t size, uint64_t ins);
 
             int addImmediate(uint64_t size, const void *value);
 
-            int finalize(void);
+            int finalize();
 
         private:
             ALF_jit_buf *jitObj;
         };
 
-        std::string getError(void);
+        std::string getError();
 
-        uint64_t pageSize(void);
+        uint64_t pageSize();
     }
 }
 

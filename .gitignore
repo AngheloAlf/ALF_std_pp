@@ -62,4 +62,4 @@ out/
 *.suo
 
 tests/*
-!tests/*.c
+!tests/*.cpp

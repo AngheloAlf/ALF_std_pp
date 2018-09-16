@@ -2,9 +2,9 @@
 #include <iostream>
 
 int main(){
-    ALF::BYTES::Bytes *bytes = new ALF::BYTES::Bytes("Ola k ase", 10);
+    ALF::BYTES::Bytes *bytes = new ALF::BYTES::Bytes((const uint8_t *)"Ola k ase", 10);
     std::cout<<bytes->getBytes()<<std::endl;
-    bytes->setBytes("autobus o k ase", 16);
+    bytes->setBytes((const uint8_t *)"autobus o k ase", 16);
     std::cout<<bytes->getBytes()<<std::endl;
     return 0;
 }

@@ -5,14 +5,14 @@ char *ALF::IO::raw_input(const char* outMessage){
     return ALF_IO_raw_input(outMessage);
 }
 
-std::string *ALF::IO::raw_input(const std::string *outMessage){
-    char *value = ALF_IO_raw_input(outMessage->c_str());
+std::string ALF::IO::raw_input(const std::string outMessage){
+    char *value = ALF_IO_raw_input(outMessage.c_str());
     if(value){
-        std::string *newValue = new std::string(value);
+        std::string newValue = std::string(value);
         free(value);
         return newValue;
     }
-    return NULL;
+    return nullptr;
 }
 
 void ALF::IO::puthex(unsigned char character){
