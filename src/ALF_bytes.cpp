@@ -15,6 +15,10 @@ uint8_t *ALF::BYTES::Bytes::getBytes(){
     return ALF_bytes_getBytes(bytesObj);
 }
 
+const uint8_t *ALF::BYTES::Bytes::seeBytes(){
+    return ALF_bytes_seeBytes(bytesObj);
+}
+
 bool ALF::BYTES::Bytes::setBytes(const uint8_t *bytes, size_t size){
     return ALF_bytes_setBytes(bytesObj, bytes, size);
 }
