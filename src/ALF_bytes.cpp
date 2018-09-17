@@ -1,7 +1,12 @@
 #include "ALF_std_pp/ALF_bytes.hpp"
 
+#include <stdexcept>
+
 ALF::BYTES::Bytes::Bytes(const uint8_t *bytes, size_t size){
     bytesObj = ALF_bytes_init(bytes, size);
+    if(bytesObj == NULL){
+        throw std::runtime_error("Couldn't allocate memory.");
+    }
 }
 ALF::BYTES::Bytes::~Bytes(){
     ALF_bytes_free(bytesObj);
@@ -21,6 +26,10 @@ const uint8_t *ALF::BYTES::Bytes::seeBytes(){
 
 bool ALF::BYTES::Bytes::setBytes(const uint8_t *bytes, size_t size){
     return ALF_bytes_setBytes(bytesObj, bytes, size);
+}
+
+bool ALF::BYTES::Bytes::setBytes(const uint8_t *bytes){
+    return ALF_bytes_setBytes(bytesObj, bytes, bytesObj->size);
 }
 
 bool ALF::BYTES::Bytes::setSize(size_t size){

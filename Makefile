@@ -42,7 +42,8 @@ CC			= @g++
 LANG_EXT	= cpp
 HEADER_EXT	= hpp
 OBJ_EXT		= o
-FLAGS		= -Wall -fPIC -O2 -Wpedantic -std=gnu++17
+FLAGS		= -Wall -Wextra -fPIC -O2 -Wpedantic -std=gnu++17
+OTHER		= 
 SHARED_FLAG	= -shared
 DEBUG_FLAG	= -g
 LIBS		= ALF_std
@@ -143,8 +144,8 @@ makefolders:
 	$(ECHO) "\tFolders done\n"
 
 $(OBJ_DIR)/%.$(OBJ_EXT): $(SRC_DIR)/%.$(LANG_EXT)
-	$(ECHO) $(CC) -c $< 
-	$(CC) -c $< -o $@ $(FLAGS) $(INCLUDE_FOLD) $(LIBS_FOLDER) $(LIBS_NAMES)
+	$(ECHO) $(CC) -c $< $(OTHER)
+	$(CC) -c $< -o $@ $(FLAGS) $(INCLUDE_FOLD) $(LIBS_FOLDER) $(LIBS_NAMES) $(OTHER)
 
 make_objects: makefolders $(OBJ_O)
 	$(ECHO) "\tObjects done\n"
@@ -164,6 +165,6 @@ ar_static_lib: make_objects
 
 compile_dynamic_lib: make_objects
 	$(ECHO) "Making dynamic lib"
-	$(ECHO) $(CC) $(OUT_LIB_DIR)$(PATH_SEPARATOR)$(LIB_DYNAMIC) $(SHARED_FLAG)
-	$(CC) $(OBJ_DIR)/*.$(OBJ_EXT) $(SHARED_FLAG) -o $(OUT_LIB_DIR)/$(LIB_DYNAMIC) $(INCLUDE_FOLD) $(LIBS_FOLDER) $(LIBS_NAMES)
+	$(ECHO) $(CC) $(OUT_LIB_DIR)$(PATH_SEPARATOR)$(LIB_DYNAMIC) $(SHARED_FLAG) $(OTHER)
+	$(CC) $(OBJ_DIR)/*.$(OBJ_EXT) $(SHARED_FLAG) -o $(OUT_LIB_DIR)/$(LIB_DYNAMIC) $(INCLUDE_FOLD) $(LIBS_FOLDER) $(LIBS_NAMES) $(OTHER)
 	$(ECHO) "->Dynamic lib done"

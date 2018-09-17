@@ -28,6 +28,8 @@ namespace ALF{
 
             bool setBytes(const uint8_t *bytes, size_t size);
 
+            bool setBytes(const uint8_t *bytes);
+
             bool setSize(size_t size);
             
             uint8_t getByte(size_t position);
