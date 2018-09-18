@@ -14,6 +14,7 @@
 #include "ALF_std_pp/ALF_bytes.hpp"
 #include "ALF_std_pp/ALF_IO.hpp"
 #include "ALF_std_pp/ALF_jit.hpp"
+#include "ALF_std_pp/ALF_math.hpp"
 #include "ALF_std_pp/ALF_OS.hpp"
 #include "ALF_std_pp/ALF_str.hpp"
 

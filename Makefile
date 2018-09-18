@@ -45,7 +45,6 @@ OBJ_EXT		= o
 FLAGS		= -Wall -Wextra -fPIC -O2 -Wpedantic -std=gnu++17
 OTHER		= 
 SHARED_FLAG	= -shared
-DEBUG_FLAG	= -g
 LIBS		= ALF_std
 LIBS_NAMES	= $(addprefix -l, $(LIBS))
 LIBS_FOLDER	= $(addprefix -L, $(LIBS_DIR))
@@ -87,9 +86,6 @@ all: dynamic_lib # static_lib
 	$(COPY) $(COPY_FLAGS) $(SRC_DIR)$(PATH_SEPARATOR)$(LIB_NAME).$(HEADER_EXT) $(OUT_INC_DIR)$(PATH_SEPARATOR)
 	$(COPY) $(COPY_FLAGS) $(SRC_DIR)$(PATH_SEPARATOR)$(LIB_NAME)$(PATH_SEPARATOR) $(OUT_INC_DIR)$(PATH_SEPARATOR)
 	$(ECHO) "Done\n"
-
-debug: make_debug_objects ar_static_lib compile_dynamic_lib
-	$(ECHO) "Debug ready\n"
 
 install: # dynamic_lib #static_lib
 	$(INSTALL_COM) $(OUT_LIB_DIR)/* --target-directory=$(INSTALL_LIB_DIR)
@@ -147,13 +143,6 @@ $(OBJ_DIR)/%.$(OBJ_EXT): $(SRC_DIR)/%.$(LANG_EXT)
 	$(CC) -c $< -o $@ $(FLAGS) $(INCLUDE_FOLD) $(LIBS_FOLDER) $(LIBS_NAMES) $(OTHER)
 
 make_objects: makefolders $(OBJ_O)
-	$(ECHO) "\tObjects done\n"
-
-make_debug_objects: makefolders
-	$(ECHO) "Making objects"
-	$(CC) -c $(SRC_DIR)$(PATH_SEPARATOR)*.$(LANG_EXT) $(FLAGS) $(DEBUG_FLAG) $(INCLUDE_FOLD) $(LIBS_FOLDER) $(LIBS_NAMES)
-	$(ECHO) "->Moving files"
-	$(MOVE) *.$(OBJ_EXT) $(OBJ_DIR)$(PATH_SEPARATOR)
 	$(ECHO) "\tObjects done\n"
 
 ar_static_lib: make_objects
