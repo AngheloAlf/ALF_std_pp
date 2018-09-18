@@ -23,10 +23,13 @@ namespace ALF{
             uint64_t getAvaibleSize();
 
             int addInstruction(uint64_t size, uint64_t ins);
+            void addInstruction_e(uint64_t size, uint64_t ins);
 
             int addImmediate(uint64_t size, const void *value);
+            void addImmediate_e(uint64_t size, const void *value);
 
             int finalize();
+            void finalize_e();
 
         private:
             ALF_jit_buf *jitObj;
